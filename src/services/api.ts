@@ -65,10 +65,11 @@ export const getCountries = (): any => {
  * @param {string} slug of country
  * @returns {object} list of stats
  */
-export const getCountryStatsPerDay = (
+export const getCountryStatsForLastMonth = (
   slug: string,
   startDate: string,
   endDate: string
 ): any => {
-  return get(`/country/${slug}?from=${startDate}&to=${endDate}`);
+  return get(`/total/country/${slug}?from=${startDate}&to=${endDate}`);
+  // return get(`/country/${slug}?from=${startDate}&to=${endDate}`);
 };

@@ -1,0 +1,46 @@
+@import "./variables";
+
+body {
+  margin: 0;
+  background-color: $background-color;
+}
+
+header {
+  width: 100%;
+  padding: 5rem 0 2rem;
+  text-align: center;
+  font-size: 1.5rem;
+  color: $header-text;
+  font-family: sans-serif;
+}
+
+form {
+  box-sizing: border-box;
+  margin: 0 auto;
+  max-width: 250px;
+  width: 100%;
+  box-shadow: 1px 2px 10px 0 rgba(0, 0, 0, 0.4);
+  border-radius: 6px;
+  border: 1px solid rgba(92, 29, 21, 0.9);
+  margin-bottom: 2rem;
+
+  fieldset {
+    border: none;
+    border-radius: 3px;
+    padding: 0;
+
+    select {
+      width: 100%;
+      height: 32px;
+      border: none;
+      background-color: transparent;
+      padding: 0 0 0 4px;
+      font-size: 16px;
+      color: $primary-color;
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+}

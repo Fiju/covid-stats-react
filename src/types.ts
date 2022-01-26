@@ -19,3 +19,11 @@ export interface CountryStats {
   Active: number;
   Date: string;
 }
+
+export interface NormalizedStats {
+  total_deaths?: number | undefined;
+  total_cases?: number | undefined;
+  country?: number | undefined;
+  new_cases?: number | undefined;
+  new_death?: number | undefined;
+}

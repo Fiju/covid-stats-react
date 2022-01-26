@@ -1,0 +1,23 @@
+@import "../assets/style/variables";
+
+.container {
+  display: flex;
+
+  max-width: fit-content;
+  margin: auto;
+
+  div {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 10px;
+    border: 1px solid $primary-color;
+    row-gap: 10px;
+    strong {
+      text-transform: capitalize;
+      color: $primary-color;
+    }
+    &:not(:first-child) {
+      border-left: none;
+    }
+  }
+}
