@@ -13,7 +13,7 @@ const CountriesList: React.FunctionComponent<IProps> = (props) => {
     <form>
       <fieldset>
         <select
-          placeholder="Select country"
+          data-testid="country-list"
           value={props.selectedCountry}
           onChange={(e) => props.selectCountry(e.target.value)}
         >
