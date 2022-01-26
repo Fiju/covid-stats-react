@@ -1,0 +1,12 @@
+@import "../assets/style/variables";
+
+.container {
+  background-color: $darkest-red;
+  text-align: center;
+  padding: 1rem 0.5rem;
+  margin-bottom: 4rem;
+
+  h1 {
+    color: #fff;
+  }
+}

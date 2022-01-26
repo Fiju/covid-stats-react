@@ -6,24 +6,40 @@ import CountriesStats from "./CountryStats";
 
 import { Country } from "../types";
 import { useCountriesList } from "../hook";
+import NetworkStatus from "./NetworkStatus";
 
-import styles from "./App.module.scss";
+import { ReactComponent as IconNoWifi } from "../assets/images/no-wifi-icon.svg";
+import Header from "./Header";
 
 function App() {
   const [countriesList, isFetching]: [Country[], boolean] = useCountriesList();
   const [selectedCountry, setSelectedCountry] = useState<string>("");
-  return isFetching ? (
-    <Spinner />
-  ) : (
-    <div className={styles.container}>
-      <h1>Covid Statistics</h1>
-      <CountriesList
-        countries={countriesList}
-        selectedCountry={selectedCountry}
-        selectCountry={setSelectedCountry}
-      />
-      <CountriesStats slug={selectedCountry} />
-    </div>
+  return (
+    <>
+      <Header />
+      <div>
+        {isFetching ? (
+          <Spinner />
+        ) : (
+          <NetworkStatus
+            render={(status: boolean | undefined) =>
+              status !== false ? (
+                <>
+                  <CountriesList
+                    countries={countriesList}
+                    selectedCountry={selectedCountry}
+                    selectCountry={setSelectedCountry}
+                  />
+                  <CountriesStats slug={selectedCountry} />
+                </>
+              ) : (
+                <IconNoWifi />
+              )
+            }
+          />
+        )}
+      </div>
+    </>
   );
 }
 

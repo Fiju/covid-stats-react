@@ -13,10 +13,13 @@ const CountriesList: React.FunctionComponent<IProps> = (props) => {
     <form>
       <fieldset>
         <select
+          placeholder="Select country"
           value={props.selectedCountry}
           onChange={(e) => props.selectCountry(e.target.value)}
         >
-          <option value=""></option>
+          <option value="" disabled>
+            Select country
+          </option>
           {props.countries?.map((country) => (
             <option value={country.Slug} key={country.Slug}>
               {country.Country}
