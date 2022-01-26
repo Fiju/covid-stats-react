@@ -59,3 +59,16 @@ function parseJSONResponse(response: any) {
 export const getCountries = (): any => {
   return get("/countries");
 };
+
+/**
+ * Returns one day stats of a country
+ * @param {string} slug of country
+ * @returns {object} list of stats
+ */
+export const getCountryStatsPerDay = (
+  slug: string,
+  startDate: string,
+  endDate: string
+): any => {
+  return get(`/country/${slug}?from=${startDate}&to=${endDate}`);
+};

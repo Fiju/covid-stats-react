@@ -1,7 +1,10 @@
 import { useState } from "react";
+
 import CountriesList from "./CountriesList";
-import { useCountriesList } from "../hook";
+import CountriesStats from "./CountryStats";
+
 import { Country } from "../types";
+import { useCountriesList } from "../hook";
 
 function App() {
   const [countriesList, isFetching]: [Country[], boolean] = useCountriesList();
@@ -13,6 +16,7 @@ function App() {
         isLoading={isFetching}
         selectCountry={setSelectedCountry}
       />
+      <CountriesStats slug={selectedCountry} />
     </div>
   );
 }
