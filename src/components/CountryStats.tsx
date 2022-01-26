@@ -1,6 +1,6 @@
 import React from "react";
 
-import { useCountryStats } from "../hook";
+import { useCountryStats } from "../hooks";
 
 import { NormalizedStats } from "../types";
 import Spinner from "./Spinner";

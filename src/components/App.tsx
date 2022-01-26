@@ -5,7 +5,7 @@ import CountriesList from "./CountriesList";
 import CountriesStats from "./CountryStats";
 
 import { Country } from "../types";
-import { useCountriesList } from "../hook";
+import { useCountriesList } from "../hooks";
 import NetworkStatus from "./NetworkStatus";
 
 import { ReactComponent as IconNoWifi } from "../assets/images/no-wifi-icon.svg";

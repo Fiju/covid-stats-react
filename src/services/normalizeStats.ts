@@ -1,4 +1,5 @@
 export const normalize = (stats: any) => {
+  const oldestDayStats = stats[0];
   const result = stats
     .reverse()
     .splice(0, 2)
@@ -15,7 +16,7 @@ export const normalize = (stats: any) => {
       }
       return acc;
     }, {});
-  result.mothly_new_deaths = result.total_deaths - stats[0].Deaths;
-  result.mothly_new_cases = result.total_cases - stats[0].Confirmed;
+  result.mothly_new_deaths = result.total_deaths - oldestDayStats.Deaths;
+  result.mothly_new_cases = result.total_cases - oldestDayStats.Confirmed;
   return result;
 };
