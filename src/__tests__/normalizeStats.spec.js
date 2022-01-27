@@ -27,9 +27,9 @@ test("if normalizer works fine", () => {
     country: "Denmark",
     total_deaths: 120,
     total_cases: 10020,
-    new_cases: 10,
-    new_death: 10,
-    mothly_new_deaths: 20,
-    mothly_new_cases: 20,
+    new_cases_since_yesterday: 10,
+    new_death_since_yesterday: 10,
+    new_cases_since_last_month: 20,
+    new_deaths_since_last_month: 20,
   });
 });
