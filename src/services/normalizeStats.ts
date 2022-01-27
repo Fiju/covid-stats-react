@@ -1,3 +1,17 @@
+/**
+ *
+ * @param {Array} stats: Monthly stats array
+ * @returns {Object} Evaluated results in the following structure:
+ *  {
+ *     country,
+ *     total_deaths,
+ *     total_cases,
+ *     new_cases_since_yesterday,
+ *     new_death_since_yesterday,
+ *     new_deaths_since_last_month,
+ *     new_cases_since_last_month,
+ *  }
+ */
 export const normalize = (stats: any) => {
   if (!stats.length) return { error: "No record found" };
   const oldestDayStats = stats[0];

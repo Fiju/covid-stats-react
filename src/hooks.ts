@@ -40,6 +40,11 @@ export const useCountryStats = (
   const [data, setData] = useState<NormalizedStats>();
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
+  /**
+   * For some countries api was not giving data for current day.
+   * So to handle all of our use-cases we are fetching one month prior
+   * data and using it to calculate data we need
+   */
   useEffect(() => {
     async function fetch() {
       if (slug) {
