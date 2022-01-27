@@ -30,7 +30,7 @@ function App() {
                     selectedCountry={selectedCountry}
                     selectCountry={setSelectedCountry}
                   />
-                  <CountriesStats slug={selectedCountry} />
+                  {selectedCountry && <CountriesStats slug={selectedCountry} />}
                 </>
               ) : (
                 <div

@@ -20,7 +20,7 @@ function getEngine(data: Country[] | undefined) {
 }
 
 const CountriesList: React.FunctionComponent<IProps> = (props) => {
-  const [query, setQuery] = useState<string>("");
+  const [query, setQuery] = useState<string>(props.selectedCountry || "");
   const [isOpen, setIsOpen] = useState<boolean>(false);
   let searchEngine: any = useMemo(
     () => getEngine(props.countries || []),
@@ -35,7 +35,7 @@ const CountriesList: React.FunctionComponent<IProps> = (props) => {
     <div className={styles.container}>
       <input
         data-testid="country-list"
-        value={query}
+        value={query.replaceAll("-", " ")}
         onChange={(e) => setQuery(e.target.value)}
         onFocus={() => setIsOpen(true)}
         onBlur={() => setIsOpen(false)}
