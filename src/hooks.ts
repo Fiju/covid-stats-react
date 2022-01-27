@@ -32,12 +32,12 @@ export const useCountryStats = (
   useEffect(() => {
     async function fetch() {
       if (slug) {
+        setIsLoading(true);
         const currentDate = new Date();
         const endData = getIsoDate(currentDate);
         const startDate = getIsoDate(
           new Date(currentDate.setMonth(currentDate.getMonth() - 1))
         );
-        setIsLoading(true);
         const res = await api.getCountryStatsForLastMonth(
           slug,
           startDate,
@@ -46,9 +46,11 @@ export const useCountryStats = (
         if (res.ok) {
           const normalizedData = normalize(res.json);
           setData(normalizedData);
-          setIsLoading(false);
+        } else {
+          setData({ error: "There was problem fetching data" });
         }
       } else setData({});
+      setIsLoading(false);
     }
     fetch();
   }, [slug]);

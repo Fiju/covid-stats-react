@@ -14,7 +14,7 @@ test("if country dropdown is rendered", () => {
   expect(dropdown.childElementCount).toBe(1);
 });
 
-test("if country dropdown is has passed in countries as options", () => {
+test("if country dropdown is passed in countries as options", () => {
   render(
     <CountriesList
       countries={[

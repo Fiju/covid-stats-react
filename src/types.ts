@@ -26,4 +26,5 @@ export interface NormalizedStats {
   country?: number | undefined;
   new_cases?: number | undefined;
   new_death?: number | undefined;
+  error?: string;
 }

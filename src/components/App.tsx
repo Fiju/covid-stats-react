@@ -33,7 +33,17 @@ function App() {
                   <CountriesStats slug={selectedCountry} />
                 </>
               ) : (
-                <IconNoWifi />
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    flexDirection: "column",
+                    rowGap: "1rem",
+                  }}
+                >
+                  <IconNoWifi />
+                  No network connection
+                </div>
               )
             }
           />

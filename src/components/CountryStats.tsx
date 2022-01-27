@@ -17,19 +17,19 @@ const CountriesStats: React.FunctionComponent<IProps> = (props) => {
 
   return isLoading ? (
     <Spinner />
-  ) : stats ? (
+  ) : stats && !stats.error ? (
     <section className={styles.container}>
       {Object.entries(stats as NormalizedStats).map((entry) => {
         return (
           <div key={entry[0]}>
-            <strong>{entry[0].replace("_", " ")}</strong>
+            <strong>{entry[0].replaceAll("_", " ")}</strong>
             <label>{entry[1]}</label>
           </div>
         );
       })}
     </section>
   ) : (
-    <></>
+    <section className={styles.container}>{stats?.error}</section>
   );
 };
 

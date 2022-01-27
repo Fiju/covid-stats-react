@@ -23,15 +23,7 @@ function fetchJSON(url: string, options?: any) {
 }
 
 function parseJSONResponse(response: any) {
-  if (response.status === 204) {
-    return {
-      status: response.status,
-      ok: response.ok,
-      json: {},
-      unauthorized: false,
-      forbidden: false,
-    };
-  } else if (response.status === 500) {
+  if (response.status >= 400) {
     return response.text().then((text: string) => ({
       status: response.status,
       ok: response.ok,
@@ -71,5 +63,4 @@ export const getCountryStatsForLastMonth = (
   endDate: string
 ): any => {
   return get(`/total/country/${slug}?from=${startDate}&to=${endDate}`);
-  // return get(`/country/${slug}?from=${startDate}&to=${endDate}`);
 };

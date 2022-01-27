@@ -1,4 +1,5 @@
 export const normalize = (stats: any) => {
+  if (!stats.length) return { error: "No record found" };
   const oldestDayStats = stats[0];
   const result = stats
     .reverse()
@@ -16,7 +17,7 @@ export const normalize = (stats: any) => {
       }
       return acc;
     }, {});
-  result.mothly_new_deaths = result.total_deaths - oldestDayStats.Deaths;
-  result.mothly_new_cases = result.total_cases - oldestDayStats.Confirmed;
+  result.monthly_new_deaths = result.total_deaths - oldestDayStats.Deaths;
+  result.monthly_new_cases = result.total_cases - oldestDayStats.Confirmed;
   return result;
 };
