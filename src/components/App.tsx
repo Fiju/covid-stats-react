@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+import Header from "./Header";
 import Spinner from "./Spinner";
 import CountriesList from "./CountriesList";
 import CountriesStats from "./CountryStats";
@@ -9,7 +10,6 @@ import { useCountriesList } from "../hooks";
 import NetworkStatus from "./NetworkStatus";
 
 import { ReactComponent as IconNoWifi } from "../assets/images/no-wifi-icon.svg";
-import Header from "./Header";
 
 function App() {
   const [countriesList, isFetching]: [Country[], boolean] = useCountriesList();

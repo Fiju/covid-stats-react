@@ -13,7 +13,18 @@ export const useCountriesList = (): [Country[], boolean] => {
       setIsLoading(true);
       const res = await api.getCountries();
       if (res.ok) {
-        setData(res.json);
+        setData(
+          //  @ts-ignore
+          res.json.sort((a: Country, b: Country) => {
+            if (a.Slug < b.Slug) {
+              return -1;
+            }
+            if (a.Slug > b.Slug) {
+              return 1;
+            }
+            return 0;
+          })
+        );
         setIsLoading(false);
       }
     }

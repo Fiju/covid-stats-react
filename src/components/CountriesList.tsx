@@ -15,7 +15,6 @@ function getEngine(data: Country[] | undefined) {
   const engine = new SearchEngine("ISO2");
   engine.indexStrategy = new AllSubstringsIndexStrategy();
   engine.addIndex("Slug");
-  engine.addIndex("Country");
   engine.addDocuments(data as Object[]);
   return engine;
 }
